@@ -11,17 +11,12 @@ type User {
 
   type Project {
     _id: ID
-    projectText: String
+    projectDescription: String
     projectAuthor: String
     createdAt: String
-    comments: [Comment]!
-  }
-
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
+    projectName: String
+    dueDate: Date
+    userID: ID!
   }
 
   type Auth {
@@ -41,9 +36,7 @@ type User {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addProject(projectText: String!): Project
-    addComment(projectId: ID!, commentText: String!): Project
     removeProject(projectId: ID!): Project
-    removeComment(projectId: ID!, commentId: ID!): Project
   }
    `;
 
