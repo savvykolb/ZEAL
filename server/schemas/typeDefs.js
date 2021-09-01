@@ -19,6 +19,7 @@ type User {
     userID: ID!
   }
 
+<<<<<<< HEAD
   type Tasks {
     _id: ID
     tasksDescription: String
@@ -30,6 +31,8 @@ type User {
     userID: ID!
   }
 
+=======
+>>>>>>> 7b5534c475ed2d52f94e73a756b5f0357bc982af
   type Auth {
     token: ID!
     user: User
