@@ -19,6 +19,17 @@ type User {
     userID: ID!
   }
 
+  type Tasks {
+    _id: ID
+    tasksDescription: String
+    tasksAuthor: String
+    tasksName: String
+    tasksPriority: String
+    tasksStatus: String
+    dueDate: Int
+    userID: ID!
+  }
+
   type Auth {
     token: ID!
     user: User
