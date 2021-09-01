@@ -2,7 +2,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const projectSchema = require('./Project');
+// const Project = require('./Project');
 
 const userSchema = new Schema(
     {
@@ -22,7 +22,7 @@ const userSchema = new Schema(
             required: true,
           },
 
-          savedProjects: [projectSchema],
+          // savedProjects: [projectSchema],
     },
     {
         toJSON: {
@@ -43,9 +43,9 @@ userSchema.pre('save', async function (next) {
     return bcrypt.compare(password, this.password);
   };
 
-  userSchema.virtual('projectCount').get(function () {
-    return this.savedProjects.length;
-  });
+  // userSchema.virtual('projectCount').get(function () {
+  //   return this.savedProjects.length;
+  // });
   
   const User = model('User', userSchema);
   
