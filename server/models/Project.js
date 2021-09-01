@@ -4,7 +4,7 @@ const dateFormat = require('../utils/dateFormat');
 const projectSchema = new Schema({
     projectDescription: {
       type: String,
-      required: 'You need to leave a thought!',
+      required: 'You need to leave a description!',
       minlength: 1,
       maxlength: 280,
       trim: true,
