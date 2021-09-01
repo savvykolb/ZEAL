@@ -1,10 +1,10 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const projectSchema = new Schema({
     projectDescription: {
       type: String,
-      required: 'You need to leave a thought!',
+      required: 'You need to leave a description!',
       minlength: 1,
       maxlength: 280,
       trim: true,
@@ -28,6 +28,6 @@ const projectSchema = new Schema({
         unique: true,
     },
   });
+  const Project = model('Project', projectSchema);
 
-
-module.exports = projectSchema;
+module.exports = Project;

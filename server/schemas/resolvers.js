@@ -4,16 +4,16 @@ const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
-    Query: {
-        me: async (parent, args, context) => {
-            if (context.user) {
-              return User.findOne({ _id: context.user._id }).populate("savedProjects");
-            }
-            throw new AuthenticationError(
-              "You need to log in to perform this query!"
-            );
-          },
-        },
+    // Query: {
+    //     me: async (parent, args, context) => {
+    //         if (context.user) {
+    //           return User.findOne({ _id: context.user._id }).populate("savedProjects");
+    //         }
+    //         throw new AuthenticationError(
+    //           "You need to log in to perform this query!"
+    //         );
+    //       },
+    //     },
 
         Mutation: {
             login: async (parent, { email, password }) => {
@@ -39,32 +39,32 @@ const resolvers = {
             return { token, user };
           },
 
-          saveProject: async (parent, { project }, context) => {
-            if (context.user) {
-                const user = await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $addToSet: { savedProjects: project } },
-                { new: true, runValidators: true }  
-                );
+        //   saveProject: async (parent, { project }, context) => {
+        //     if (context.user) {
+        //         const user = await User.findOneAndUpdate(
+        //         { _id: context.user._id },
+        //         { $addToSet: { savedProjects: project } },
+        //         { new: true, runValidators: true }  
+        //         );
 
-                return user;
-            }
-            throw new AuthenticationError ("Please Log In to save your projects!")
-        },
+        //         return user;
+        //     }
+        //     throw new AuthenticationError ("Please Log In to save your projects!")
+        // },
 
-        removeProject: async (parent, { projectId }, context) => {
-            if (context.user) {
-                const user = await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $pull: { savedProjects: { projectId: projectId } } },
-                { new: true }    
-                );
+        // removeProject: async (parent, { projectId }, context) => {
+        //     if (context.user) {
+        //         const user = await User.findOneAndUpdate(
+        //         { _id: context.user._id },
+        //         { $pull: { savedProjects: { projectId: projectId } } },
+        //         { new: true }    
+        //         );
 
-                return user;
-            }
+        //         return user;
+        //     }
 
-            throw new AuthenticationError("Your project was not deleted! Please try again.")
-        }
+        //     throw new AuthenticationError("Your project was not deleted! Please try again.")
+        // }
     },   
 };
 
