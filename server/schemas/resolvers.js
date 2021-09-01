@@ -39,6 +39,24 @@ const resolvers = {
             return { token, user };
           },
 
+          addProject: async (parent, { projectDescription }, context) => {
+             if (context.user) {
+              const project = await Project.create({
+                projectDescription,
+                projectAuthor: context.user.username,
+              });
+      
+              await User.findOneAndUpdate(
+                { _id: context.user._id },
+                { $addToSet: { projects: project._id } }
+              );
+      
+              return project;
+             }
+            // throw new AuthenticationError('You need to be logged in!');
+          },
+
+
         //   saveProject: async (parent, { project }, context) => {
         //     if (context.user) {
         //         const user = await User.findOneAndUpdate(
