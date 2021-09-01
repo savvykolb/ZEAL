@@ -19,7 +19,6 @@ type User {
     userID: ID!
   }
 
-<<<<<<< HEAD
   type Tasks {
     _id: ID
     tasksDescription: String
@@ -31,8 +30,6 @@ type User {
     userID: ID!
   }
 
-=======
->>>>>>> 7b5534c475ed2d52f94e73a756b5f0357bc982af
   type Auth {
     token: ID!
     user: User
@@ -49,7 +46,8 @@ type User {
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addProject(projectText: String!): Project
+    addProject(projectDescription: String!): Project
+    addTasks(tasksDescription: String!): Tasks
     removeProject(projectId: ID!): Project
   }
    `;
