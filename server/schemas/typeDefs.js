@@ -38,6 +38,45 @@ type User {
     addProject(projectText: String!): Project
     removeProject(projectId: ID!): Project
   }
+
+  type User {
+    _id: ID
+    username: String
+    email: String
+    password: String
+    tasks: [Tasks]!
+  }
+
+  type Tasks {
+    _id: ID
+    tasksDescription: String
+    tasksAuthor: String
+    tasksName: String
+    tasksPriority: String
+    tasksStatus: String
+    dueDate: Date
+    userID: ID!
+  }
+
+  type Auth {
+    token: ID!
+    user: User
+  }
+
+  type Query {
+    users: [User]
+    user(username: String!): User
+    tasks(username: String): [Tasks]
+    tasks(tasksId: ID!): Tasks
+    me: User
+  }
+
+  type Mutation {
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
+    addTasks(TasksText: String!): Tasks
+    removeTasks(TasksId: ID!): Tasks
+  }
    `;
 
 module.exports = typeDefs;
