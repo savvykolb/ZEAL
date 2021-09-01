@@ -1,5 +1,4 @@
-const { Schema } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const { Schema, model } = require('mongoose');
 
 const tasksSchema = new Schema({
     tasksDescription: {
@@ -33,5 +32,5 @@ const tasksSchema = new Schema({
         unique: true,
     },
 })
-
-module.exports = tasksSchema;
+const Tasks = model('Tasks', tasksSchema);
+module.exports = Tasks;
