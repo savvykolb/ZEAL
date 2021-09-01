@@ -15,7 +15,7 @@ type User {
     projectAuthor: String
     createdAt: String
     projectName: String
-    dueDate: Date
+    dueDate: Int
     userID: ID!
   }
 
