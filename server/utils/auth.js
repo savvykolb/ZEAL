@@ -32,3 +32,6 @@ module.exports = {
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
+
+
+// pulled from activity 26 looked into other authorization files and they all looked the same. 
