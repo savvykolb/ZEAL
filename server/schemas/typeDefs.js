@@ -46,7 +46,8 @@ type User {
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addProject(projectText: String!): Project
+    addProject(projectDescription: String!): Project
+    addTasks(tasksDescription: String!): Tasks
     removeProject(projectId: ID!): Project
   }
    `;
