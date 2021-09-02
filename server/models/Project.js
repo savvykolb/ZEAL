@@ -4,14 +4,14 @@ const dateFormat = require('../utils/dateFormat');
 const projectSchema = new Schema({
     projectDescription: {
       type: String,
-      required: 'You need to leave a description!',
+      required: true,
       minlength: 1,
       maxlength: 280,
       trim: true,
     },
     projectAuthor: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
     },
     createdAt: {
@@ -24,7 +24,7 @@ const projectSchema = new Schema({
     },
      projectName: {
         type: String, 
-        required: true, 
+        required: false, 
         unique: true,
     },
   });
