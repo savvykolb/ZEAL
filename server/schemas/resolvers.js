@@ -1,5 +1,5 @@
-//notes at bottom of page
-const { User, Project } = require('../models');
+//  NEW notes at bottom of page AS OF 9/1 4PM
+const { User, Project, Tasks } = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 
@@ -106,3 +106,4 @@ const resolvers = {
 module.exports = resolvers;
       
 //inserted from HW 21 'resolvers' file..... changed out 'Book' for 'Projects'. Feel free to change
+//are we inserting "tasks" up top in imports??? 9/1 4:00pm
