@@ -25,7 +25,7 @@ const projectSchema = new Schema({
      projectName: {
         type: String, 
         required: false, 
-        unique: true,
+        // unique: true,
     },
   });
   const Project = model('Project', projectSchema);

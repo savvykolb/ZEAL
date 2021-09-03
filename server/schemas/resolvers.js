@@ -35,8 +35,8 @@ const resolvers = {
         //   },
 
           addProject: async (parent, {projectDescription} ) => {
-            console.log("blah", projectDescription)
-            const project = Project.create({
+            // console.log("blah", projectDescription)
+            const project = await Project.create({
               projectDescription
             })
             // console.log('#1', project)
