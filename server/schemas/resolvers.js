@@ -8,6 +8,20 @@ const resolvers = {
         users: async (parent, args) => {
               return User.find({});
           },
+        user: async (parent, { username }) => {
+            return User.findOne({ username })
+          },
+        project: async (parent, { projectId }) => {
+            return Project.findOne({ _id: projectId });
+        },
+        me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate('thoughts');
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+        
         },
 
         Mutation: {
