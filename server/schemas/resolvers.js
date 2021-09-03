@@ -11,6 +11,10 @@ const resolvers = {
         user: async (parent, { username }) => {
             return User.findOne({ username })
           },
+        projects: async (parent, { username }) => {
+        const params = username ? { username } : {};
+           return Project.find(params)
+        },
         project: async (parent, { projectId }) => {
             return Project.findOne({ _id: projectId });
         },
