@@ -13,6 +13,7 @@ type User {
     _id: ID
     projectDescription: String
     projectAuthor: String
+    projectUsers: Object
     createdAt: String
     projectName: String
     dueDate: Int
