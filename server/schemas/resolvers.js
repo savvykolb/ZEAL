@@ -72,7 +72,7 @@ const resolvers = {
             }
            // throw new AuthenticationError('You need to be logged in!');
          },
-
+         
 
         //   saveProject: async (parent, { project }, context) => {
         //     if (context.user) {
