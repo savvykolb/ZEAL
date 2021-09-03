@@ -1,9 +1,11 @@
 import React from 'react';
+// import { Navbar } from 'react-bootstrap';
+import AppNavbar from "./components/Navbar";
 
 function App() {
   return (
     <div>
-      Hello World
+      <AppNavbar/>
     </div>
   );
 }
