@@ -23,6 +23,25 @@ const resolvers = {
         return Project.findOne({ _id: projectId });
     },
 
+    //I am not sure if I set these up correctly. I may be over complicating but 
+      // we have mulitple tasks for each project, 
+        // & we have muliple tasks for each user associated with the project
+          // & we have tasks assigned by user
+
+    tasks: async (parent, {taskID}) => {
+      return Tasks.findOne({_id: taskID});
+    },
+
+    userTasks: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Tasks.find(params)
+      },
+
+    projectTasks: async (parent, {projectID}) => {
+      const params = projectID ? { projectID } : {};
+      return Tasks.find(params)
+    },
+    
     me: async (parent, args, context) => {
     if (context.user) {
     return User.findOne({ _id: context.user._id }).populate('thoughts');
@@ -70,6 +89,8 @@ const resolvers = {
   //   },
   //   // throw new AuthenticationError('You need to be logged in!');
   // },
+
+  //*_*_*_*_*_*_*_*_*_* Unable to test due to needing to login*_*_*_*_*_*_*_*_*
   addProject: async (parent, { projectDescription }, context) => {
     console.log("again:", context.user)
     if (context.user) {
@@ -88,22 +109,25 @@ const resolvers = {
     }
     throw new AuthenticationError('You need to be logged in!');
   },
-  //   addTasks: async (parent, { tasksDescription }, context) => {
-  //     if (context.user) {
-  //      const tasks = await Tasks.create({
-  //        tasksDescription,
-  //        tasksAuthor: context.user.username,
-  //      });
+  //*_*_*_*_*_*_*_*_*_* Unable to test due to needing to login*_*_*_*_*_*_*_*_*
+  //*_*_*_*_*_*_*_*_*_* Added back in - not sure correct*_*_*_*_*_*_*_*_*
 
-  //      await User.findOneAndUpdate(
-  //        { _id: context.user._id },
-  //        { $addToSet: { tasks: tasks._id } }
-  //      );
+    addTasks: async (parent, { tasksDescription }, context) => {
+      if (context.user) {
+       const tasks = await Tasks.create({
+         tasksDescription,
+         tasksAuthor: context.user.username,
+       });
 
-  //      return tasks;
-  //     }
-  //    // throw new AuthenticationError('You need to be logged in!');
-  //  },
+       await User.findOneAndUpdate(
+         { _id: context.user._id },
+         { $addToSet: { tasks: tasks._id } }
+       );
+
+       return tasks;
+      }
+     // throw new AuthenticationError('You need to be logged in!');
+   },
 
   //   saveProject: async (parent, { project }, context) => {
   //     if (context.user) {
