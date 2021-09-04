@@ -1,32 +1,34 @@
 //  NEW notes at bottom of page AS OF 9/1 4PM
-const { User, Project, Tasks } = require('../models');
-const { signToken } = require('../utils/auth');
-const { AuthenticationError } = require('apollo-server-express');
+const { User, Project, Tasks } = require("../models");
+const { signToken } = require("../utils/auth");
+const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
     users: async (parent, args) => {
-      return User.find({});
-    },
+          return User.find({});
+      },
+
     user: async (parent, { username }) => {
-      return User.findOne({ username })
-    },
+        return User.findOne({ username })
+      },
+
     projects: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Project.find(params)
+    const params = username ? { username } : {};
+    return Project.find(params)
     },
+
     project: async (parent, { projectId }) => {
-      return Project.findOne({ _id: projectId });
+        return Project.findOne({ _id: projectId });
     },
+
     me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
-
-
-  },
+    if (context.user) {
+    return User.findOne({ _id: context.user._id }).populate('thoughts');
+  }
+  throw new AuthenticationError('You need to be logged in!');
+ },
+},
 
   Mutation: {
     //     login: async (parent, { email, password }) => {
@@ -55,8 +57,8 @@ const resolvers = {
     addProject: async (parent, { projectDescription }) => {
       // console.log("blah", projectDescription)
       const project = await Project.create({
-        projectDescription
-      })
+        projectDescription,
+      });
       // console.log('#1', project)
       // await User.findOneAndUpdate(
       //   { $addToSet: { projects: project._id } }
@@ -64,57 +66,56 @@ const resolvers = {
 
       //   console.log("#2", project)
       return project;
-    }
+    },
     // throw new AuthenticationError('You need to be logged in!');
   },
 
-  // //   addTasks: async (parent, { tasksDescription }, context) => {
-  // //     if (context.user) {
-  // //      const tasks = await Tasks.create({
-  // //        tasksDescription,
-  // //        tasksAuthor: context.user.username,
-  // //      });
+  //   addTasks: async (parent, { tasksDescription }, context) => {
+  //     if (context.user) {
+  //      const tasks = await Tasks.create({
+  //        tasksDescription,
+  //        tasksAuthor: context.user.username,
+  //      });
 
-  // //      await User.findOneAndUpdate(
-  // //        { _id: context.user._id },
-  // //        { $addToSet: { tasks: tasks._id } }
-  // //      );
+  //      await User.findOneAndUpdate(
+  //        { _id: context.user._id },
+  //        { $addToSet: { tasks: tasks._id } }
+  //      );
 
-  // //      return tasks;
-  // //     }
-  // //    // throw new AuthenticationError('You need to be logged in!');
-  // //  },
+  //      return tasks;
+  //     }
+  //    // throw new AuthenticationError('You need to be logged in!');
+  //  },
 
+  //   saveProject: async (parent, { project }, context) => {
+  //     if (context.user) {
+  //         const user = await User.findOneAndUpdate(
+  //         { _id: context.user._id },
+  //         { $addToSet: { savedProjects: project } },
+  //         { new: true, runValidators: true }
+  //         );
 
-  // //   saveProject: async (parent, { project }, context) => {
-  // //     if (context.user) {
-  // //         const user = await User.findOneAndUpdate(
-  // //         { _id: context.user._id },
-  // //         { $addToSet: { savedProjects: project } },
-  // //         { new: true, runValidators: true }  
-  // //         );
+  //         return user;
+  //     }
+  //     throw new AuthenticationError ("Please Log In to save your projects!")
+  // },
 
-  // //         return user;
-  // //     }
-  // //     throw new AuthenticationError ("Please Log In to save your projects!")
-  // // },
+  // removeProject: async (parent, { projectId }, context) => {
+  //     if (context.user) {
+  //         const user = await User.findOneAndUpdate(
+  //         { _id: context.user._id },
+  //         { $pull: { savedProjects: { projectId: projectId } } },
+  //         { new: true }
+  //         );
 
-  // // removeProject: async (parent, { projectId }, context) => {
-  // //     if (context.user) {
-  // //         const user = await User.findOneAndUpdate(
-  // //         { _id: context.user._id },
-  // //         { $pull: { savedProjects: { projectId: projectId } } },
-  // //         { new: true }    
-  // //         );
+  //         return user;
+  //     }
 
-  // //         return user;
-  // //     }
-
-  // //     throw new AuthenticationError("Your project was not deleted! Please try again.")
+  //     throw new AuthenticationError("Your project was not deleted! Please try again.")
   // }
-}
+};
 
 module.exports = resolvers;
 
-//inserted from HW 21 'resolvers' file..... changed out 'Book' for 'Projects'. Feel free to change
-//are we inserting "tasks" up top in imports??? 9/1 4:00pm
+// inserted from HW 21 'resolvers' file..... changed out 'Book' for 'Projects'. Feel free to change
+// are we inserting "tasks" up top in imports??? 9/1
