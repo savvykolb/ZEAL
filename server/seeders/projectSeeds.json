@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
     {
       "projectDescription": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
       "projectAuthor": "Brian Kernighan"
@@ -13,3 +14,26 @@
     }
   ]
   
+=======
+{
+    "projectDescription": "description 1",
+    "projectAuthor": "Svannah Kolb"
+},
+{
+    "projectDescription": "description 2",
+    "projectAuthor": "Summer Milner"
+},
+{
+    "projectDescription": "description 3",
+    "projectAuthor": "Fatimah Grant"
+},
+{
+    "projectDescription": "description 4",
+    "projectAuthor": "Naomi Valdovinos"
+},
+{
+    "projectDescription": "description 5",
+    "projectAuthor": "Naomi Torres"
+}
+]
+>>>>>>> main
