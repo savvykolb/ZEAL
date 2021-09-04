@@ -89,6 +89,8 @@ const resolvers = {
   //   },
   //   // throw new AuthenticationError('You need to be logged in!');
   // },
+
+  //*_*_*_*_*_*_*_*_*_* Unable to test due to needing to login*_*_*_*_*_*_*_*_*
   addProject: async (parent, { projectDescription }, context) => {
     console.log("again:", context.user)
     if (context.user) {
@@ -107,22 +109,25 @@ const resolvers = {
     }
     throw new AuthenticationError('You need to be logged in!');
   },
-  //   addTasks: async (parent, { tasksDescription }, context) => {
-  //     if (context.user) {
-  //      const tasks = await Tasks.create({
-  //        tasksDescription,
-  //        tasksAuthor: context.user.username,
-  //      });
+  //*_*_*_*_*_*_*_*_*_* Unable to test due to needing to login*_*_*_*_*_*_*_*_*
+  //*_*_*_*_*_*_*_*_*_* Added back in - not sure correct*_*_*_*_*_*_*_*_*
 
-  //      await User.findOneAndUpdate(
-  //        { _id: context.user._id },
-  //        { $addToSet: { tasks: tasks._id } }
-  //      );
+    addTasks: async (parent, { tasksDescription }, context) => {
+      if (context.user) {
+       const tasks = await Tasks.create({
+         tasksDescription,
+         tasksAuthor: context.user.username,
+       });
 
-  //      return tasks;
-  //     }
-  //    // throw new AuthenticationError('You need to be logged in!');
-  //  },
+       await User.findOneAndUpdate(
+         { _id: context.user._id },
+         { $addToSet: { tasks: tasks._id } }
+       );
+
+       return tasks;
+      }
+     // throw new AuthenticationError('You need to be logged in!');
+   },
 
   //   saveProject: async (parent, { project }, context) => {
   //     if (context.user) {
