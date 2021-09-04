@@ -1,22 +1,22 @@
 [
     {
-        "projectDescription": "description 1",
-        "projectAuthor": "Svannah Kolb"
+      "username": "Brian Kernighan",
+      "email": "bkernighan@techfriends.dev",
+      "password": "password01"
     },
     {
-        "projectDescription": "description 2",
-        "projectAuthor": "Summer Milner"
+      "username": "Max Kanat-Alexander",
+      "email": "mkanatalexander@techfriends.dev",
+      "password": "password02"
     },
     {
-        "projectDescription": "description 3",
-        "projectAuthor": "Fatimah Grant"
+      "username": "Why The Lucky Stiff",
+      "email": "wtls@techfriends.dev",
+      "password": "password03"
     },
     {
-        "projectDescription": "description 4",
-        "projectAuthor": "Naomi Valdovinos"
-    },
-    {
-        "projectDescription": "description 5",
-        "projectAuthor": "Naomi Torres"
+      "username": "Kent Beck",
+      "email": "kbeck@techfriends.dev",
+      "password": "password04"
     }
-    ]
+]

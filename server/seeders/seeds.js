@@ -6,26 +6,13 @@ const projectSeeds = require('./projectSeeds.json');
 db.once('open', async () => {
     try {
       await Project.deleteMany({});
+      await Project.create(projectSeeds);
       await User.deleteMany({});
-  
       await User.create(userSeeds);
   
-      for (let i = 0; i < projectSeeds.length; i++) {
-        const { _id, projectAuthor } = await Project.create(projectSeeds[i]);
-        const user = await User.findOneAndUpdate(
-          { username: projectAuthor },
-          {
-            $addToSet: {
-              thoughts: _id,
-            },
-          }
-        );
-      }
+      console.log("well well well")
+      process.exit(0);
     } catch (err) {
-      console.error(err);
-      process.exit(1);
+      throw err;
     }
-  
-    console.log('all done!');
-    process.exit(0);
   });
