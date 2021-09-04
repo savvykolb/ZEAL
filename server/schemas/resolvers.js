@@ -6,7 +6,8 @@ const { AuthenticationError } = require("apollo-server-express");
 const resolvers = {
   Query: {
     users: async (parent, args) => {
-          return User.find({});
+        console.log('users1', args)
+          return User.find({args});
       },
 
     user: async (parent, { username }) => {
@@ -31,22 +32,22 @@ const resolvers = {
 },
 
   Mutation: {
-    //     login: async (parent, { email, password }) => {
-    //    const user = await User.findOne({ email });
+        login: async (parent, { email, password }) => {
+       const user = await User.findOne({ email });
 
-    //    if (!user) {
-    //      throw new AuthenticationError("Invalid email address");
-    //    }
-    //    const correctPw = await user.isCorrectPassword(password);
+       if (!user) {
+         throw new AuthenticationError("Invalid email address");
+       }
+       const correctPw = await user.isCorrectPassword(password);
 
-    //    if (!correctPw) {
-    //      throw new AuthenticationError("Invalid password");
-    //    }
+       if (!correctPw) {
+         throw new AuthenticationError("Invalid password");
+       }
 
-    //    const token = signToken(user);
+       const token = signToken(user);
 
-    //    return { token, user };
-    //  },
+       return { token, user };
+     },
 
     //  addUser: async (parent, { username, email, password }) => {
     //     const user = await User.create({ username, email, password });
@@ -54,22 +55,39 @@ const resolvers = {
     //     return { token, user };
     //   },
 
-    addProject: async (parent, { projectDescription }) => {
-      // console.log("blah", projectDescription)
+  //   addProject: async (parent, { projectDescription }) => {
+  //     // console.log("blah", projectDescription)
+  //     const project = await Project.create({
+  //       projectDescription,
+  //     });
+  //     await User.findOneAndUpdate(
+  //       { $addToSet: { projects: project._id } }
+  //     );
+  //     console.log("user:", User)
+
+  //       console.log("#2", project)
+  //     return project;
+  //   },
+  //   // throw new AuthenticationError('You need to be logged in!');
+  // },
+  addProject: async (parent, { projectDescription }, context) => {
+    console.log("again:", context.user)
+    if (context.user) {
       const project = await Project.create({
         projectDescription,
+        projectAuthor: context.user.username,
       });
-      // console.log('#1', project)
-      // await User.findOneAndUpdate(
-      //   { $addToSet: { projects: project._id } }
-      // );
 
-      //   console.log("#2", project)
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $addToSet: { project: project._id } }
+      );
+        console.log('user:', User)
+        console.log("#$",project)
       return project;
-    },
-    // throw new AuthenticationError('You need to be logged in!');
+    }
+    throw new AuthenticationError('You need to be logged in!');
   },
-
   //   addTasks: async (parent, { tasksDescription }, context) => {
   //     if (context.user) {
   //      const tasks = await Tasks.create({
@@ -113,7 +131,7 @@ const resolvers = {
 
   //     throw new AuthenticationError("Your project was not deleted! Please try again.")
   // }
-};
+}};
 
 module.exports = resolvers;
 
