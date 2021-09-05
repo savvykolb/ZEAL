@@ -40,6 +40,7 @@ type User {
     user(username: String!): User
     projects(username: String): [Project]
     project(projectId: ID!): Project
+    up(projectName: String): [User]
     me: User
   }
 
