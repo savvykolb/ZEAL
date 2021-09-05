@@ -1,8 +1,9 @@
 import React from 'react';
 // import { Navbar } from 'react-bootstrap';
-import AppNavbar from "./components/Navbar";
 import { BrowserRouter as Router } from "react-router-dom";
+import AppNavbar from "./components/Navbar";
 import LoginForm from './components/LoginForm';
+import NewProjectForm from './components/NewProjectForm';
 
 import {
   ApolloClient,
@@ -38,6 +39,7 @@ function App() {
     <div>
       <AppNavbar/>
       <LoginForm/>
+      {/* <NewProjectForm/> */}
     </div>
     </Router>
      </ApolloProvider>
