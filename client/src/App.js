@@ -1,6 +1,7 @@
 import React from 'react';
 import Homescreen from './pages/Homescreen';
 // import { Navbar } from 'react-bootstrap';
+import NewProjectForm from './components/NewProjectForm';
 import AppNavbar from "./components/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginForm from './components/LoginForm';
@@ -39,10 +40,11 @@ function App() {
     <Router>
     <div>
       <AppNavbar/>
+      <LoginForm/>
+      {/* <NewProjectForm/> */}
      <Route path = "/" component = {LoginForm} exact />
      <Route path = "/signup" component = {SignupForm} exact />
      <Route path = "/home" component = {Homescreen} exact />
-
     </div>
     </Router>
      </ApolloProvider>
