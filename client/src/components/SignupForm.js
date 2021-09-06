@@ -109,6 +109,7 @@ const SignupForm = () => {
         <Button
           disabled={
             !(
+              
               userFormData.username &&
               userFormData.email &&
               userFormData.password
@@ -120,6 +121,7 @@ const SignupForm = () => {
           Submit
         </Button>
         <div>
+
           <p>Already have a account?
             <Link to = "/" >Login</Link>
           </p>
