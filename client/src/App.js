@@ -1,9 +1,11 @@
 import React from 'react';
+import Homescreen from './pages/Homescreen';
 // import { Navbar } from 'react-bootstrap';
-import { BrowserRouter as Router } from "react-router-dom";
-import AppNavbar from "./components/Navbar";
-import LoginForm from './components/LoginForm';
 import NewProjectForm from './components/NewProjectForm';
+import AppNavbar from "./components/Navbar";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
 
 import {
   ApolloClient,
@@ -40,6 +42,9 @@ function App() {
       <AppNavbar/>
       <LoginForm/>
       {/* <NewProjectForm/> */}
+     <Route path = "/" component = {LoginForm} exact />
+     <Route path = "/signup" component = {SignupForm} exact />
+     <Route path = "/home" component = {Homescreen} exact />
     </div>
     </Router>
      </ApolloProvider>
