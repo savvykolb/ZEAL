@@ -1,5 +1,6 @@
 import React from 'react';
 import Homescreen from './pages/Homescreen';
+
 // import { Navbar } from 'react-bootstrap';
 import NewProjectForm from './components/NewProjectForm';
 import AppNavbar from "./components/Navbar";
@@ -14,6 +15,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import ProjectPage from './pages/ProjectPage';
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -45,6 +47,7 @@ function App() {
      <Route exact path = "/" component = {LoginForm} />
      <Route path = "/signup" component = {SignupForm} exact />
      <Route path = "/home" component = {Homescreen} exact />
+     <Route path = "/project" component = {ProjectPage} exact />
     </div>
     </Router>
      </ApolloProvider>
