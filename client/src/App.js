@@ -40,9 +40,9 @@ function App() {
     <Router>
     <div>
       <AppNavbar/>
-      <LoginForm/>
+      {/* <LoginForm/> */}
       {/* <NewProjectForm/> */}
-     <Route path = "/" component = {LoginForm} exact />
+     <Route exact path = "/" component = {LoginForm} />
      <Route path = "/signup" component = {SignupForm} exact />
      <Route path = "/home" component = {Homescreen} exact />
     </div>
