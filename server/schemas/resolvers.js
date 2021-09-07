@@ -33,26 +33,20 @@ const resolvers = {
         // & we have muliple tasks for each user associated with the project
           // & we have tasks assigned by user
 
-    tasks: async (parent, {taskID}) => {
-      return Tasks.findOne({_id: taskID});
-    },
-
-    userTasks: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Tasks.find(params)
-      },
+    // userTasks: async (parent, { username }) => {
+    //   const params = username ? { username } : {};
+    //   return Tasks.find(params)
+    //   },
 
     projectTasks: async (parent, {projectID}) => {
       const params = projectID ? { projectID } : {};
-      return Tasks.find(params)
+      return Tasks.findAll(params)
     },
     
-    me: async (parent, args, context) => {
-    if (context.user) {
-    return User.findOne({ _id: context.user._id }).populate('thoughts');
-  }
-  throw new AuthenticationError('You need to be logged in!');
- },
+    projectTask: async (parents, {proejectID, taskID}) => {
+      const params = taskID ? {taskID} : {};
+      return Project.findOne(params)
+    },
 },
 
   Mutation: {
