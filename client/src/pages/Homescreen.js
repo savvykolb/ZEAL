@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+
 function Homescreen() {
     return (
         <div>
@@ -15,7 +15,7 @@ function Homescreen() {
               <i className="bi bi-plus"></i>
             
               <a href="./project" className="btn btn-block p-3 my-2 btn-secondary">
-              <span>&#43;</span>
+              <span className= "plus">&#43;</span>
               <h3>Add Projects</h3>
               </a>
             </div>
@@ -33,4 +33,4 @@ function Homescreen() {
     )
 }
 
-export default Homescreen
+export default Homescreen;
