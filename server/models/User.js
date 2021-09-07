@@ -22,6 +22,12 @@ const userSchema = new Schema(
             required: true,
           },
 
+          projects: [
+            {
+              type: String
+            }
+          ]
+
           // savedProjects: [projectSchema],
     },
     {

@@ -28,6 +28,7 @@ type User {
     tasksStatus: String
     dueDate: Int
     userID: ID!
+    projectID: ID!
   }
 
   type Auth {
@@ -40,6 +41,10 @@ type User {
     user(username: String!): User
     projects(username: String): [Project]
     project(projectId: ID!): Project
+    up(projectName: String): [User]
+    tasks(taskID: ID!): Tasks
+    userTasks(username: String): [Tasks]
+    projectTasks(projectID: ID!): Project
     me: User
   }
 
