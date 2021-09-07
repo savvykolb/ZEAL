@@ -40,7 +40,6 @@ function App() {
     <Router>
     <div>
       <AppNavbar/>
-      <LoginForm/>
       {/* <NewProjectForm/> */}
      <Route path = "/" component = {LoginForm} exact />
      <Route path = "/signup" component = {SignupForm} exact />
