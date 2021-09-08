@@ -113,7 +113,6 @@ const SignupForm = () => {
         <Button
           disabled={
             !(
-              
               userFormData.username &&
               userFormData.email &&
               userFormData.password
