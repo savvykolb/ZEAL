@@ -14,7 +14,7 @@ function Homescreen() {
               <i className="fas fa-plus"></i>
               <i className="bi bi-plus"></i>
             
-              <a href="./project" className="btn btn-block p-3 my-2 btn-secondary">
+              <a href="./create" className="btn btn-block p-3 my-2 btn-secondary">
               <span className= "plus">&#43;</span>
               <h3>Add Projects</h3>
               </a>
