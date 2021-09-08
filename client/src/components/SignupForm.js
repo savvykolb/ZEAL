@@ -53,7 +53,7 @@ const SignupForm = () => {
   return (
     <>
     <div className= "position">   
-     <Container>
+     <Container className= "login">
       <Row>
         <Col>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
