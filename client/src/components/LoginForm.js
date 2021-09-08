@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
-
+import { Form, Button, Alert, Container, Row, Col } from "react-bootstrap";
+import {Link} from "react-router-dom";
 import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutation";
@@ -47,6 +47,9 @@ const LoginForm = () => {
 
   return (
     <>
+    <Container  bg='dark'>
+  <Row>
+    <Col>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
           dismissible
@@ -92,7 +95,15 @@ const LoginForm = () => {
         >
           Submit
         </Button>
+        <div>
+          <p>not yet registered?
+            <Link to = "/signup" >Create a Account</Link>
+          </p>
+        </div>
       </Form>
+      </Col>
+      </Row>
+      </Container>
     </>
   );
 };

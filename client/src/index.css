@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form-control {
+  border-radius: 10px;
+}
+.nav {
+background-color: black;
+}
+.plus {
+  content: "\002B";
+  font-size: 100px;
+}
+#task{
+  height: 50%;
+}
+.drop{
+  display: flex;
+  align-items: center;
+ 
+  grid-column-gap: 50px;
+
+}
+#add{
+  margin-top: 30px;
+}
+#added{
+  margin-top: 30px;
+}
+.projectText{
+  color: white;
+}
+#dates, #buttons{
+  display: flex;
+  align-items: center;
+ 
+  grid-column-gap: 30px;
+}

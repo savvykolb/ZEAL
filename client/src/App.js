@@ -1,8 +1,13 @@
 import React from 'react';
+import Homescreen from './pages/Homescreen';
 // import { Navbar } from 'react-bootstrap';
+import NewProjectForm from './components/NewProjectForm';
 import AppNavbar from "./components/Navbar";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
+import CreateTeam from './pages/CreateTeam';
+import './index.css';
 
 import {
   ApolloClient,
@@ -11,6 +16,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import ProjectPage from './pages/ProjectPage';
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -37,7 +43,13 @@ function App() {
     <Router>
     <div>
       <AppNavbar/>
-      <LoginForm/>
+      {/* <LoginForm/> */}
+      {/* <NewProjectForm/> */}
+     <Route exact path = "/" component = {LoginForm} />
+     <Route path = "/signup" component = {SignupForm} exact />
+     <Route path = "/home" component = {Homescreen} exact />
+     <Route path = "/project" component = {ProjectPage} exact />
+     <Route path = "/create" component = {CreateTeam} exact />
     </div>
     </Router>
      </ApolloProvider>

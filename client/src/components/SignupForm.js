@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
-
+import { Form, Button, Alert, Container, Row, Col} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutation";
@@ -52,6 +52,10 @@ const SignupForm = () => {
 
   return (
     <>
+    <div className= "position">   
+     <Container>
+      <Row>
+        <Col>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
           dismissible
@@ -109,6 +113,7 @@ const SignupForm = () => {
         <Button
           disabled={
             !(
+              
               userFormData.username &&
               userFormData.email &&
               userFormData.password
@@ -119,7 +124,17 @@ const SignupForm = () => {
         >
           Submit
         </Button>
+        <div>
+
+          <p>Already have a account?
+            <Link to = "/" >Login</Link>
+          </p>
+        </div>
       </Form>
+      </Col>
+      </Row>
+      </Container>
+      </div>
     </>
   );
 };

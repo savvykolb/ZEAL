@@ -18,12 +18,10 @@ const resolvers = {
       return Tasks.findAll(params)
     },
     
-    me: async (parent, args, context) => {
-    if (context.user) {
-    return User.findOne({ _id: context.user._id }).populate('thoughts');
-  }
-  throw new AuthenticationError('You need to be logged in!');
- },
+    projectTask: async (parents, {proejectID, taskID}) => {
+      const params = taskID ? {taskID} : {};
+      return Project.findOne(params)
+    },
 },
 
   Mutation: {
