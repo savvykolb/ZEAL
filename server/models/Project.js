@@ -11,7 +11,7 @@ const projectSchema = new Schema({
     },
 
     //~*~*~*~*~*~*~~*~ This is what we added ~*~*~*~*~*~*~*~*~*~
-   user: [{
+   projectAuthor: [{
     type: Schema.Types.ObjectId,
     ref: "User"
     }],

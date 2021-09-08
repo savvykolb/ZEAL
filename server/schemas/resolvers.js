@@ -65,11 +65,14 @@ const resolvers = {
   // },
 
   //*_*_*_*_*_*_*_*_*_* Unable to test due to needing to login*_*_*_*_*_*_*_*_*
-  addProject: async (parent, { projectDescription }, context) => {
+  addProject: async (parent, { projectDescription, projectTeam, projectName, dueDate }, context) => {
     console.log("again:", context.user)
     if (context.user) {
       const project = await Project.create({
         projectDescription,
+        projectTeam,
+        projectName, 
+        dueDate,
         projectAuthor: context.user.username,
       });
 
