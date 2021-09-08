@@ -29,6 +29,9 @@ body{
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGf7d_K-lRgjNps9txDOSIlWpFVL9-dkilUwPG77h5uXxE3nC4GuEyFuIN8tSKoWFsWUU&usqp=CAU");
 
 }
+#text{
+  color: white;
+}
 .drop{
   display: flex;
   align-items: center;
@@ -55,4 +58,9 @@ body{
   background-color: rgb(42, 42, 38);
   margin-top: 200px;
 color: white;
+}
+.idk{
+  font-size: 20px;
+  text-decoration: underline;
+margin-bottom: 30px;
 }
