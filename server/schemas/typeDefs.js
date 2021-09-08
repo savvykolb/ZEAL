@@ -1,19 +1,37 @@
 const { gql } = require('apollo-server-express');
 
+// We need to access all projects associated with specific usernames. 
+    //We set up type defs to do this (we think) but are missing the associations/populate?
+      // We tried adding into Project.js model the association (used WK18 activity14 for reference)
+          // I am thinking we are missing the connecting piece within resolvers, but we are not sure how to do this. 
+
+          //Essentially, we need this query to work in order to access all info in projects AND users. 
+            // We will need something to model to get Tasks to work. If time - this would be helpful too. 
+
+            //This was the query we used in the playground that Noah said would work if we did our associations correctly.
+            //query {
+//                 project(projectId: "6137f042dce4d04aa6e478d1"){
+//                     user{
+//                        username
+//                  }
+//                }
+//             }
+
 const typeDefs = gql`
 type User {
     _id: ID
     username: String
     email: String
     password: String
-    projects: [Project]!
+    projects: [Project]
   }
 
   type Project {
     _id: ID
     projectDescription: String
-    projectAuthor: String
-    projectUsers: [User]
+    user: User
+    projectTeam: [String]
+    projectTask: [Tasks]
     createdAt: String
     projectName: String
     dueDate: Int
@@ -25,7 +43,6 @@ type User {
     tasksAuthor: String
     tasksName: String
     tasksPriority: String
-    tasksStatus: String
     dueDate: Int
     userID: ID!
     projectID: ID!
@@ -37,14 +54,10 @@ type User {
   }
 
   type Query {
-    users: [User]
     user(username: String!): User
-    projects(username: String): [Project]
     project(projectId: ID!): Project
-    up(projectName: String): [User]
-    tasks(taskID: ID!): Tasks
-    userTasks(username: String): [Tasks]
-    projectTasks(projectID: ID!): Project
+    projectTasks(projectID: ID!): [Tasks]
+    projectTeam(projectID: ID!):[String]
     me: User
   }
 
