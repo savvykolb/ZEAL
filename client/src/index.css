@@ -25,6 +25,10 @@ background-color: black;
 #task{
   height: 50%;
 }
+body{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGf7d_K-lRgjNps9txDOSIlWpFVL9-dkilUwPG77h5uXxE3nC4GuEyFuIN8tSKoWFsWUU&usqp=CAU");
+
+}
 .drop{
   display: flex;
   align-items: center;

@@ -25,7 +25,7 @@ function CreateTeam() {
                                     </div>
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Add Team member Name</label>
-                                        <input type="password" className="form-control" id="exampleInputPassword1"></input>
+                                        <input type="input" className="form-control" id="exampleInputPassword1"></input>
                                     </div>
                                    
                                     <div id="dates"className="form-group col-md-6">
