@@ -47,7 +47,7 @@ const LoginForm = () => {
 
   return (
     <>
-    <Container  bg='dark'>
+    <Container className="login">
   <Row>
     <Col>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>

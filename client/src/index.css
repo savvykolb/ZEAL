@@ -47,3 +47,8 @@ background-color: black;
  
   grid-column-gap: 30px;
 }
+.login{
+  background-color: rgb(42, 42, 38);
+  margin-top: 200px;
+color: white;
+}
