@@ -6,14 +6,15 @@ type User {
     username: String
     email: String
     password: String
-    projects: [Project]!
+    projects: [Project]
   }
 
   type Project {
     _id: ID
     projectDescription: String
-    projectAuthor: String
-    projectUsers: [User]
+    user: User
+    projectTeam: [String]
+    projectTask: [Tasks]
     createdAt: String
     projectName: String
     dueDate: Int
@@ -25,7 +26,6 @@ type User {
     tasksAuthor: String
     tasksName: String
     tasksPriority: String
-    tasksStatus: String
     dueDate: Int
     userID: ID!
     projectID: ID!
@@ -37,14 +37,10 @@ type User {
   }
 
   type Query {
-    users: [User]
     user(username: String!): User
-    projects(username: String): [Project]
     project(projectId: ID!): Project
-    up(projectName: String): [User]
-    tasks(taskID: ID!): Tasks
-    userTasks(username: String): [Tasks]
-    projectTasks(projectID: ID!): Project
+    projectTasks(projectID: ID!): [Tasks]
+    projectTeam(projectID: ID!):[String]
     me: User
   }
 

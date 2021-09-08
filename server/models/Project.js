@@ -9,11 +9,10 @@ const projectSchema = new Schema({
       maxlength: 280,
       trim: true,
     },
-    projectAuthor: {
-      type: String,
-      required: false,
-      trim: true,
-    },
+   user: [{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+    }],
     createdAt: {
       type: Date,
       default: Date.now,
@@ -27,6 +26,11 @@ const projectSchema = new Schema({
         required: false, 
         // unique: true,
     },
+    projectTeam:[
+      {
+        type: String
+      }
+    ],
   });
   const Project = model('Project', projectSchema);
 

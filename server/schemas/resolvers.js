@@ -5,46 +5,17 @@ const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
-    users: async (parent, args) => {
-        console.log('users1', args)
-          return User.find({args});
-      },
-
     user: async (parent, { username }) => {
         return User.findOne({ username })
       },
-
-    projects: async (parent, { username }) => {
-    const params = username ? { username } : {};
-    return Project.find(params)
-    },
-
-    up: async (parent, {projectName}) => {
-      const u = projectName ? { projectName } : {}
-      return User.findAll(u)
-    },
-
+      
     project: async (parent, { projectId }) => {
         return Project.findOne({ _id: projectId });
     },
 
-    //I am not sure if I set these up correctly. I may be over complicating but 
-      // we have mulitple tasks for each project, 
-        // & we have muliple tasks for each user associated with the project
-          // & we have tasks assigned by user
-
-    tasks: async (parent, {taskID}) => {
-      return Tasks.findOne({_id: taskID});
-    },
-
-    userTasks: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Tasks.find(params)
-      },
-
     projectTasks: async (parent, {projectID}) => {
       const params = projectID ? { projectID } : {};
-      return Tasks.find(params)
+      return Tasks.findAll(params)
     },
     
     me: async (parent, args, context) => {
