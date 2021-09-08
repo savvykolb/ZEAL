@@ -18,10 +18,10 @@ const resolvers = {
       return Tasks.findAll(params)
     },
     
-    projectTask: async (parents, {proejectID, taskID}) => {
-      const params = taskID ? {taskID} : {};
-      return Project.findOne(params)
-    },
+    // projectTask: async (parents, {proejectID, taskID}) => {
+    //   const params = taskID ? {taskID} : {};
+    //   return Project.findOne(params)
+    // },
 },
 
   Mutation: {

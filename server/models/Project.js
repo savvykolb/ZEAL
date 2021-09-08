@@ -9,10 +9,14 @@ const projectSchema = new Schema({
       maxlength: 280,
       trim: true,
     },
+
+    //~*~*~*~*~*~*~~*~ This is what we added ~*~*~*~*~*~*~*~*~*~
    user: [{
     type: Schema.Types.ObjectId,
     ref: "User"
     }],
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
     createdAt: {
       type: Date,
       default: Date.now,
