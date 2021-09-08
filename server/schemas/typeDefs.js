@@ -13,10 +13,10 @@ type User {
     _id: ID
     projectDescription: String
     projectAuthor: String
+    projectUsers: [User]
     createdAt: String
     projectName: String
     dueDate: Int
-    userID: ID!
   }
 
   type Tasks {
@@ -28,6 +28,7 @@ type User {
     tasksStatus: String
     dueDate: Int
     userID: ID!
+    projectID: ID!
   }
 
   type Auth {
@@ -40,13 +41,17 @@ type User {
     user(username: String!): User
     projects(username: String): [Project]
     project(projectId: ID!): Project
+    up(projectName: String): [User]
+    tasks(taskID: ID!): Tasks
+    userTasks(username: String): [Tasks]
+    projectTasks(projectID: ID!): Project
     me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addProject(projectDescription: String!): Project
+    addProject(projectDescription: String): Project 
     addTasks(tasksDescription: String!): Tasks
     removeProject(projectId: ID!): Project
   }

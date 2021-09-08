@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-
+import {Link} from "react-router-dom";
 import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutation";
@@ -109,6 +109,7 @@ const SignupForm = () => {
         <Button
           disabled={
             !(
+              
               userFormData.username &&
               userFormData.email &&
               userFormData.password
@@ -119,6 +120,12 @@ const SignupForm = () => {
         >
           Submit
         </Button>
+        <div>
+
+          <p>Already have a account?
+            <Link to = "/" >Login</Link>
+          </p>
+        </div>
       </Form>
     </>
   );
