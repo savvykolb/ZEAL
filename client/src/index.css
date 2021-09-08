@@ -38,3 +38,12 @@ background-color: black;
 #added{
   margin-top: 30px;
 }
+.projectText{
+  color: white;
+}
+#dates, #buttons{
+  display: flex;
+  align-items: center;
+ 
+  grid-column-gap: 30px;
+}

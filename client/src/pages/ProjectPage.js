@@ -93,7 +93,7 @@ function ProjectPage() {
 
           <div className="col-12 text-center">
       //subject to update//
-            <h6><a href="./home">&larr; Go Back</a></h6>
+            <h6><a href="./create">&larr; Go Back</a></h6>
           </div>
         </div>
       </div>
