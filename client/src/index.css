@@ -41,6 +41,9 @@ background-color: black;
 .projectText{
   color: white;
 }
-.header{
-  color: yellow;
+#dates, #buttons{
+  display: flex;
+  align-items: center;
+ 
+  grid-column-gap: 30px;
 }
