@@ -50,6 +50,7 @@ const LoginForm = () => {
     <Container className="login">
   <Row>
     <Col>
+    
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
           dismissible
