@@ -18,11 +18,6 @@ const tasksSchema = new Schema({
         require: true,
         unique: true,
     },
-    tasksStatus: {
-        type: String,
-        require: true,
-        unique: true,
-    },
     dueDate: {
         type: Date,
     },

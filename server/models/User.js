@@ -24,17 +24,18 @@ const userSchema = new Schema(
 
           projects: [
             {
-              type: String
-            }
+              type: Schema.Types.ObjectId,
+              ref: 'Project',
+            },
           ]
 
           // savedProjects: [projectSchema],
     },
-    {
-        toJSON: {
-          virtuals: true,
-        },
-      }
+    // {
+    //     toJSON: {
+    //       virtuals: true,
+    //     },
+    //   }
 );
 userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {

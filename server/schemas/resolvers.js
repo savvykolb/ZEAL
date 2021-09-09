@@ -6,8 +6,10 @@ const { AuthenticationError } = require("apollo-server-express");
 const resolvers = {
   Query: {
     user: async (parent, { username }) => {
-        return User.findOne({ username })
+        return User.findOne({ username }).populate('project');
       },
+
+    
       
     project: async (parent, { projectId }) => {
         return Project.findOne({ _id: projectId });
@@ -18,6 +20,12 @@ const resolvers = {
       return Tasks.findAll(params)
     },
     
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate('project');
+      }
+      // throw new AuthenticationError('You need to be logged in!');
+    },
     // projectTask: async (parents, {proejectID, taskID}) => {
     //   const params = taskID ? {taskID} : {};
     //   return Project.findOne(params)
