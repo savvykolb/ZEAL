@@ -16,7 +16,7 @@ const tasksSchema = new Schema({
     tasksPriority: {
         type: String,
         require: true,
-        unique: true,
+        // unique: true,
     },
     dueDate: {
         type: Date,
@@ -24,7 +24,7 @@ const tasksSchema = new Schema({
     tasksName: {
         type: String,
         required: true,
-        unique: true,
+        // unique: true,
     },
 })
 const Tasks = model('Tasks', tasksSchema);
