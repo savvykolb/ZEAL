@@ -29,9 +29,9 @@ type User {
   type Project {
     _id: ID
     projectDescription: String
-    projectAuthor: User
+    projectAuthor: String
     projectTeam: [String]
-    projectTask: [Tasks]
+    projectTasks: [Tasks]
     createdAt: String
     projectName: String
     dueDate: Int

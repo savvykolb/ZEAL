@@ -5,17 +5,15 @@ const projectSchema = new Schema({
     projectDescription: {
       type: String,
       required: true,
-      minlength: 1,
-      maxlength: 280,
-      trim: true,
+      // trim: true,
     },
 
-    //~*~*~*~*~*~*~~*~ This is what we added ~*~*~*~*~*~*~*~*~*~
-   projectAuthor: [{
-    type: Schema.Types.ObjectId,
-    ref: "User"
-    }],
-// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+   projectAuthor: {
+    type: String,
+    required: false,
+    trim: true,
+   },
+
 
     createdAt: {
       type: Date,
