@@ -1,0 +1,54 @@
+[
+    {
+      "username": "Brian Kernighan",
+      "email": "bkernighan@techfriends.dev",
+      "password": "password01",
+      "projects": [
+        {
+          "projectDescription": "Test",
+          "projectAuthor": "Brian Kernighan",
+          "projectName":"thing1"
+        }
+      ]
+    
+    },
+    {
+      "username": "Max Kanat-Alexander",
+      "email": "mkanatalexander@techfriends.dev",
+      "password": "password02",
+      "projects": [
+        {
+          "projectDescription": "Test2",
+          "projectAuthor": "a",
+          "projectName":"thing2"
+        }
+      ]5
+    
+    },
+    {
+      "username": "Why The Lucky Stiff",
+      "email": "wtls@techfriends.dev",
+      "password": "password03",
+      "projects": [
+        {
+          "projectDescription": "Test3",
+          "projectAuthor": "b",
+          "projectName":"thing3"
+        }
+      ]
+      
+    },
+    {
+      "username": "Kent Beck",
+      "email": "kbeck@techfriends.dev",
+      "password": "password04",
+      "projects": [
+        {
+          "projectDescription": "Test4",
+          "projectAuthor": "c",
+          "projectName":"thing4"
+        }
+      ]
+  
+    }
+]
