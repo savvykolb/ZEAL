@@ -29,9 +29,9 @@ type User {
   type Project {
     _id: ID
     projectDescription: String
-    user: User
+    projectAuthor: String
     projectTeam: [String]
-    projectTask: [Tasks]
+    projectTasks: [Tasks]
     createdAt: String
     projectName: String
     dueDate: Int
@@ -64,7 +64,7 @@ type User {
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addProject(projectDescription: String): Project 
+    addProject(projectDescription: String, projectName: String, projectTeam: String, dueDate: Int  ): Project 
     addTasks(tasksDescription: String!): Tasks
     removeProject(projectId: ID!): Project
   }
