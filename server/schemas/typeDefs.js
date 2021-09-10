@@ -20,7 +20,7 @@ type User {
     dueDate: Int
   }
 
-}
+
   type Tasks {
     _id: ID
     tasksDescription: String
