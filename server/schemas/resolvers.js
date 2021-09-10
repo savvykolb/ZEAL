@@ -127,19 +127,18 @@ const resolvers = {
   //     throw new AuthenticationError ("Please Log In to save your projects!")
   // },
 
-  // removeProject: async (parent, { projectId }, context) => {
-  //     if (context.user) {
-  //         const user = await User.findOneAndUpdate(
-  //         { _id: context.user._id },
-  //         { $pull: { savedProjects: { projectId: projectId } } },
-  //         { new: true }
-  //         );
-
-  //         return user;
-  //     }
-
-  //     throw new AuthenticationError("Your project was not deleted! Please try again.")
-  // }
+  removeProject: async (parent, { projectId}, ) => {
+    // if (context.user) {
+        const user = await User.findOneAndUpdate(
+        { _id: "613ab2db3cfc33849e4ddb64" },
+        // { $pull: { addProject: { _id: projectId } } },
+        { $pull: { projects: { _id: projectId } } },
+        { new: true }
+        );
+        return user;
+    // }
+    // throw new AuthenticationError("Your project was not deleted! Please try again.")
+}
 }};
 
 module.exports = resolvers;
