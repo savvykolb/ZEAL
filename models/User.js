@@ -27,14 +27,11 @@ const userSchema = new Schema(
                 required: true,
                 // trim: true,
               },
-
              projectAuthor: {
               type: String,
               required: false,
               trim: true,
              },
-
-
               createdAt: {
                 type: Date,
                 default: Date.now,
@@ -46,13 +43,34 @@ const userSchema = new Schema(
                projectName: {
                   type: String, 
                   required: false, 
-                  // unique: true,
               },
               projectTeam:[
                 {
                   type: String
                 }
               ],
+              projectTasks: [
+                {
+                  tasksDescription: {
+                      type: String,
+                      require: 'You need to leave a description!',
+                      minlength: 1,
+                      maxlength: 280,
+                      trim: true,
+                  },
+                  tasksPriority: {
+                      type: String,
+                      require: true,
+                  },
+                  dueDate: {
+                      type: Date,
+                  },
+                  tasksName: {
+                      type: String,
+                      required: true,
+                  }
+                }
+              ]
             }
           ]
 

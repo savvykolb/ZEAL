@@ -14,21 +14,18 @@ type User {
     projectDescription: String
     projectAuthor: String
     projectTeam: [String]
-    projectTasks: [Tasks]
     createdAt: String
     projectName: String
     dueDate: Int
+    projectTasks: [Tasks]
   }
 
   type Tasks {
     _id: ID
     tasksDescription: String
-    tasksAuthor: String
     tasksName: String
     tasksPriority: String
     dueDate: Int
-    userID: ID!
-    projectID: ID!
   }
 
   type Auth {
@@ -45,8 +42,8 @@ type User {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addProject(projectDescription: String, projectName: String, projectTeam: String, dueDate: Int  ): Project 
-    addTasks(tasksDescription: String!): Tasks
-    removeProject(projectId: ID!): Project
+    removeProject(projectId: String): Project
+    addTasks(projectId: String, tasksDescription: String, tasksPriority: String, dueDate: Int, tasksName: String): Tasks
   }
    `;
 
