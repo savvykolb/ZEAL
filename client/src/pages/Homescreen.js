@@ -14,11 +14,11 @@ if (projectsFromStorage) {
   return (
     <div>
       <div className="d-flex min-vh-100">
-        <div className="container-fluid my-auto">
-          <h1 className="display-3 text-center">Your Projects</h1>
-          <div className="row justify-content-center">
-            <div className="col-12 col-md-9 p-4 bg-dark">
-              <div className="row">
+        <div className="container-fluid my-auto d-flex flex-column w-75">
+          <h1 id ="home-title" className="display-3 text-center">Your Projects</h1>
+          <div className="row bg-dark ">
+       
+             
                 <div className="col-12 col-md-4 ">
                   <i className="fas fa-plus"></i>
                   <i className="bi bi-plus"></i>
@@ -28,11 +28,12 @@ if (projectsFromStorage) {
                     <h3>Add Projects</h3>
                   </a>
                 </div>
+                
                 <div className="col-12 col-md-4">
 hello
             </div>
-              </div>
-            </div>
+          
+            
 
             
           </div>

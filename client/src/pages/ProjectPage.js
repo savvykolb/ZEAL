@@ -2,16 +2,16 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 function ProjectPage() {
   return (
-
+    
       <div className="container-fluid my-auto">
         <h1 className="display-2 text-center">Project Name</h1>
-        <div className="row justify-content-center">
+        <div className="text row justify-content-center">
 
           <div id= "text"className="col-12 col-md-10 mb-3 p-4 bg-dark">
             <form>
 
-            <div className="idk">Description:</div>
-    <div className="idk">Due Date:</div>
+            <div className="date">Description:</div>
+    <div className="date">Due Date:</div>
               <div className="form-group">
                 <label for="exampleFormControlSelect2">Add Task</label>
                 <textarea multiple class="form-control" id="exampleFormControlSelect2">

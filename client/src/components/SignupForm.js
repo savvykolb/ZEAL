@@ -36,11 +36,12 @@ const SignupForm = () => {
       const data = await addUser({
         variables: { ...userFormData },
       });
-
+      console.log (data)
       const { token } = data;
       Auth.login(token);
     } catch (err) {
-     throw err
+     alert("something went wrong")
+     console.log(err)
     }
 
     setUserFormData({
@@ -52,8 +53,9 @@ const SignupForm = () => {
 
   return (
     <>
-    <div className= "position">   
-     <Container className= "login">
+    <div className= "position"> 
+      
+     <Container className= "login bg-dark">
       <Row>
         <Col>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
@@ -133,6 +135,7 @@ const SignupForm = () => {
       </Col>
       </Row>
       </Container>
+    
       </div>
     </>
   );

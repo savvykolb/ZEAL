@@ -47,7 +47,7 @@ const LoginForm = () => {
 
   return (
     <>
-    <Container className="login">
+    <Container className="login bg-dark">
   <Row>
     <Col>
     
