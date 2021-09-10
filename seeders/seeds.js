@@ -13,6 +13,3 @@ db.once('open', async () => {
   }catch(error){process.exit(1)}
 }
 );
-
-
-/////pleaseeeee donit

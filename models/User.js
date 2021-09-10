@@ -27,14 +27,14 @@ const userSchema = new Schema(
                 required: true,
                 // trim: true,
               },
-          
+
              projectAuthor: {
               type: String,
               required: false,
               trim: true,
              },
-          
-          
+
+
               createdAt: {
                 type: Date,
                 default: Date.now,
@@ -69,7 +69,7 @@ userSchema.pre('save', async function (next) {
       const saltRounds = 10;
       this.password = await bcrypt.hash(this.password, saltRounds);
     }
-  
+
     next();
   });
 
@@ -80,9 +80,9 @@ userSchema.pre('save', async function (next) {
   // userSchema.virtual('projectCount').get(function () {
   //   return this.savedProjects.length;
   // });
-  
+
   const User = model('User', userSchema);
-  
+
   module.exports = User;
 
   //Used 'user' model from 'book search hw' and replaced "books" with 'Projects'. Feel free to change
