@@ -35,7 +35,7 @@ mutation addProject($projectDescription: String, $projectName: String, $projectT
     createdAt
     projectName
     dueDate
-    projectTask {
+    projectTasks {
       _id
       tasksDescription
       tasksAuthor
@@ -72,7 +72,7 @@ mutation removeProject($projectId: ID!) {
     createdAt
     projectName
     dueDate
-    projectTask {
+    projectTasks {
       _id
       tasksDescription
       tasksAuthor
