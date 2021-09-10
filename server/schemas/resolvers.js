@@ -1,5 +1,5 @@
 //  NEW notes at bottom of page AS OF 9/1 4PM
-const { User, Project, Tasks } = require("../models");
+const { User, Tasks } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 
@@ -9,16 +9,10 @@ const resolvers = {
         return User.findOne({ username }).populate('project');
       },
 
-    
-      
-    project: async (parent, { projectId }) => {
-        return Project.findOne({ _id: projectId });
-    },
-
-    projectTasks: async (parent, {projectID}) => {
-      const params = projectID ? { projectID } : {};
-      return Tasks.findAll(params)
-    },
+    // projectTasks: async (parent, {projectID}) => {
+    //   const params = projectID ? { projectID } : {};
+    //   return Tasks.findAll(params)
+    // },
     
     me: async (parent, args, context) => {
       if (context.user) {
@@ -73,27 +67,27 @@ const resolvers = {
   // },
 
   //*_*_*_*_*_*_*_*_*_* Unable to test due to needing to login*_*_*_*_*_*_*_*_*
-  addProject: async (parent, { projectDescription, projectTeam, projectName, dueDate }, context) => {
-    console.log("again:", context.user)
-    if (context.user) {
-      const project = await Project.create({
-        projectDescription,
-        projectTeam,
-        projectName, 
-        dueDate,
-        projectAuthor: context.user.username,
-      });
+  // addProject: async (parent, { projectDescription, projectTeam, projectName, dueDate }, context) => {
+  //   console.log("again:", context.user)
+  //   if (context.user) {
+  //     const project = await Project.create({
+  //       projectDescription,
+  //       projectTeam,
+  //       projectName, 
+  //       dueDate,
+  //       projectAuthor: context.user.username,
+  //     });
 
-      await User.findOneAndUpdate(
-        { _id: context.user._id },
-        { $addToSet: { project: project._id } }
-      );
-        console.log('user:', User)
-        console.log("#$",project)
-      return project;
-    }
-    throw new AuthenticationError('You need to be logged in!');
-  },
+  //     await User.findOneAndUpdate(
+  //       { _id: context.user._id },
+  //       { $addToSet: { project: project._id } }
+  //     );
+  //       console.log('user:', User)
+  //       console.log("#$",project)
+  //     return project;
+  //   }
+  //   throw new AuthenticationError('You need to be logged in!');
+  // },
   //*_*_*_*_*_*_*_*_*_* Unable to test due to needing to login*_*_*_*_*_*_*_*_*
   //*_*_*_*_*_*_*_*_*_* Added back in - not sure correct*_*_*_*_*_*_*_*_*
 
