@@ -62,7 +62,7 @@ function CreateTeam({history}) {
                                     <div className="mb-3">
                                         <label for="name" className="form-label">Add Team member Name</label>
                                         <input type="text" className="form-control" value={newMember} onChange={(e) => setNewMember(e.target.value)} id="exampleInputPassword1" />
-                                        <input type="button" className="form-control bg-secondary" id="addTeamButton" value= "Add Team Member" onClick={addTeamMember} />
+                                        <input type="button" className=" form-control bg-secondary" id="addTeamButton" value= "Add Team Member" onClick={addTeamMember} />
                                     </div>
 
                                     <div id="dates" className="form-group col-md-6">
