@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-function ProjectPage() {
+function ProjectPage({history}) {
+
+  const [unassigned, setUnassigned] = useState([])
+ const [loggedIn,setLoggedIn] = useState({})
 const [allTask, setAllTask] = useState([])
   const [priority, setPriority] = useState("")
  const [task, setTask] = useState("")
@@ -12,18 +15,53 @@ const [allTask, setAllTask] = useState([])
     console.log(projectsFromStorage)
     const index = projectsFromStorage.length - 1
     setProject(projectsFromStorage[index])
+
+
+    const userFromStorage = localStorage.getItem("zealLoggedIn")
+    if (!userFromStorage){
+      history.push("/")
+    }else{
+      setLoggedIn(JSON.parse(userFromStorage))
+    }
+
   }, [])
   const addTask= ()=>{
-    if (!priority || !teamMember || !task){
+    if (!priority || !task){
       alert ("please fill in the information")
       return
     }
-   const updatedTask= [...allTask, {task, teamMember, priority}] 
-   setAllTask(updatedTask)
+   if (!teamMember) {
+     const updated = [...unassigned, {task,priority}]
+     setUnassigned(updated)
+   } else {
+    const updatedTask= [...allTask, {task, teamMember, priority}] 
+    setAllTask(updatedTask)
+   }
    setTask("")
     setTeamMember("")
     setPriority("")
    
+  }
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    const newProject = {
+      name: project.projectName,
+      description: project.projectDescription,
+      team: project.team,
+      dueDate: project.dueDate,
+      unassignedTask: unassigned, 
+      assignedTask: allTask,
+    }
+    const projectsFromStorage = (localStorage.getItem("projectList"))
+    if (projectsFromStorage) {
+      const projectList = JSON.parse(projectsFromStorage)
+      projectList.push(newProject)
+
+      localStorage.setItem("projectList",JSON.stringify(projectList))
+    }else{
+      localStorage.setItem("projectList",JSON.stringify([newProject]))
+    }
+   history.push("/home")
   }
 
 
@@ -34,7 +72,7 @@ const [allTask, setAllTask] = useState([])
       <div className="text row justify-content-center">
 
         <div id="text" className="col-12 col-md-10 mb-3 p-4 bg-dark">
-          <form>
+          <form onSubmit= {handleSubmit}>
 
             <div className="date">Description: {project.projectDescription}</div>
             <div className="date">Due Date:{project.dueDate}</div>
@@ -66,39 +104,27 @@ const [allTask, setAllTask] = useState([])
 
             <button id="add" type="button" onClick={addTask} className="btn btn-primary bg-secondary">Add Task</button>
 
-          </form>
+          
 
-          <form>
-            <div id="added" class="form-group">
-              <label for="exampleFormControlSelect2">My Task</label>
-              <select multiple class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
+        
+            
             <div class="form-group">
               <label for="exampleFormControlSelect2">Team Task</label>
-              <select multiple class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
+              <ul>
+                {allTask.map ((item,i)=>{
+                   return <li style={{backgroundColor: item.priority === "high" ? "red" : item.priority === "medium" ? "yellow" : "green"}} key= {i}>{item.teamMember}- {item.task}</li> 
+                })}
+              </ul>
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect2">Unassigned Task</label>
-              <select multiple class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
+              <ul>
+                { unassigned.map ((item,i)=>{
+                   return <li style={{backgroundColor: item.priority === "high" ? "red" : item.priority === "medium" ? "yellow" : "green"}} key= {i}>{item.task}</li> 
+                })}
+              </ul>
             </div>
+           
 
 
 

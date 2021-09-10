@@ -5,7 +5,7 @@ import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutation";
 
-const LoginForm = () => {
+const LoginForm = ({history}) => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -25,18 +25,34 @@ const LoginForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
+    const usersFromStorage = localStorage.getItem("zealUsers")
+    const zealUsers = usersFromStorage ? JSON.parse(usersFromStorage) : []
+    const userExist = zealUsers.filter((user)=>user.email === userFormData.email) 
+    if (!userExist.length){
+      alert("User Not Registered...Please Create a Account")
 
-    try {
-      const { data } = await login({
-        variables: userFormData,
-      });
-
-      const { token } = await data.login;
-      Auth.login(token);
-    } catch (err) {
-      console.log(`Error: ${err}`);
-      setShowAlert(true);
+    history.push("/signup")
+    } else {
+      if (userExist[0].password === userFormData.password){
+        localStorage.setItem("zealLoggedIn", JSON.stringify(userFormData))
+      history.push("/home")    
+      }else {
+        alert ("invalid Password")
+      }
+      return
     }
+
+    // try {
+    //   const { data } = await login({
+    //     variables: userFormData,
+    //   });
+
+    //   const { token } = await data.login;
+    //   Auth.login(token);
+    // } catch (err) {
+    //   console.log(`Error: ${err}`);
+    //   setShowAlert(true);
+    // }
 
     setUserFormData({
       username: "",

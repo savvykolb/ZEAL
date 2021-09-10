@@ -5,7 +5,7 @@ import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutation";
 
-const SignupForm = () => {
+const SignupForm = ({history}) => {
   const [userFormData, setUserFormData] = useState({
     username: "",
     email: "",
@@ -31,18 +31,33 @@ const SignupForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
-    try {
-      const data = await addUser({
-        variables: { ...userFormData },
-      });
-      console.log (data)
-      const { token } = data;
-      Auth.login(token);
-    } catch (err) {
-     alert("something went wrong")
-     console.log(err)
+    const usersFromStorage = localStorage.getItem("zealUsers")
+    const zealUsers = usersFromStorage ? JSON.parse(usersFromStorage) : []
+    const userExist = zealUsers.filter((user)=>user.email === userFormData.email).length 
+    if (!userExist){
+      zealUsers.push(userFormData)
+      localStorage.setItem("zealUsers", JSON.stringify(zealUsers))
+    localStorage.setItem("zealLoggedIn", JSON.stringify(userFormData))
+    history.push("/home")
+    } else {
+      alert ("user already exist")
+    return
     }
+
+
+
+    
+    // try {
+    //   const data = await addUser({
+    //     variables: { ...userFormData },
+    //   });
+    //   console.log (data)
+    //   const { token } = data;
+    //   Auth.login(token);
+    // } catch (err) {
+    //  alert("something went wrong")
+    //  console.log(err)
+    // }
 
     setUserFormData({
       username: "",
