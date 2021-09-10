@@ -16,7 +16,7 @@ code {
   border-radius: 10px;
 }
 .nav {
-background-color: black;
+/* background-color:rgb(58, 58, 12); */
 }
 .plus {
   content: "\002B";
@@ -54,13 +54,43 @@ body{
  
   grid-column-gap: 30px;
 }
+
+
 .login{
-  background-color: rgb(42, 42, 38);
+
+  width: 60vw;
+  /* background-color: rgb(42, 42, 38); */
   margin-top: 100px;
 color: white;
 }
-.idk{
+.date{
   font-size: 20px;
   text-decoration: underline;
 margin-bottom: 30px;
 }
+
+@media only screen and (max-width: 700px){
+  #home-title{
+    font-size: 40px;
+  }
+} 
+
+#addTeamButton{
+ border: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  color: black;
+}
+
+.btn{ 
+  border: none;
+  
+}
+.text{
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+

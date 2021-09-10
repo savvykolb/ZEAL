@@ -12,7 +12,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar className="nav" variant='dark' expand='lg'>
+      <Navbar className="nav bg-dark" variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand className="header" as={Link} to='/'>
             ZEAL
@@ -31,7 +31,7 @@ const AppNavbar = () => {
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link as={Link} to='/'>Login/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>

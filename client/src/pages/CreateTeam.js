@@ -41,7 +41,7 @@ function CreateTeam({history}) {
     return (
         <div>
             <div className="d-flex min-vh-100">
-                <div className="container-fluid my-auto">
+                <div className="container-fluid my-auto d-flex flex-column w-75">
                     <h1 id="head" className="display-3 text-center">Setup Project</h1>
                     <div className="row justify-content-center">
                         <div className="col-12 col-md-9 p-4 bg-dark">
@@ -62,7 +62,7 @@ function CreateTeam({history}) {
                                     <div className="mb-3">
                                         <label for="name" className="form-label">Add Team member Name</label>
                                         <input type="text" className="form-control" value={newMember} onChange={(e) => setNewMember(e.target.value)} id="exampleInputPassword1" />
-                                        <input type="button" className="form-control" id="addTeamButton" value= "Add Team Member" onClick={addTeamMember} />
+                                        <input type="button" className="form-control bg-secondary" id="addTeamButton" value= "Add Team Member" onClick={addTeamMember} />
                                     </div>
 
                                     <div id="dates" className="form-group col-md-6">
@@ -77,8 +77,8 @@ function CreateTeam({history}) {
                                 </div>
 
                                 <div id="buttons">
-                                    <button type="submit" className="btn btn-primary">Submit</button>
-                                    <button type="button" className="btn btn-primary">Reset</button>
+                                    <button type="submit" className="btn btn-primary bg-secondary">Submit</button>
+                                    <button type="button" className="btn btn-primary bg-secondary">Reset</button>
                                 </div>
                             </form>
                         </div>
