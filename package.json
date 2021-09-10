@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "camelcase": "^6.2.0",
     "graphql": "^15.5.1",
     "nodemon": "^2.0.12"
   }
