@@ -53,6 +53,28 @@ const userSchema = new Schema(
                   type: String
                 }
               ],
+              projectTasks: [
+                {
+                  tasksDescription: {
+                      type: String,
+                      require: 'You need to leave a description!',
+                      minlength: 1,
+                      maxlength: 280,
+                      trim: true,
+                  },
+                  tasksPriority: {
+                      type: String,
+                      require: true,
+                  },
+                  dueDate: {
+                      type: Date,
+                  },
+                  tasksName: {
+                      type: String,
+                      required: true,
+                  }
+                }
+              ]
             }
           ]
 
