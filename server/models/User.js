@@ -2,7 +2,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// const Project = require('./Project');
 
 const userSchema = new Schema(
     {
@@ -21,12 +20,40 @@ const userSchema = new Schema(
             type: String,
             required: true,
           },
-
           projects: [
             {
-              type: Schema.Types.ObjectId,
-              ref: 'Project',
-            },
+              projectDescription: {
+                type: String,
+                required: true,
+                // trim: true,
+              },
+
+             projectAuthor: {
+              type: String,
+              required: false,
+              trim: true,
+             },
+
+
+              createdAt: {
+                type: Date,
+                default: Date.now,
+                get: (timestamp) => dateFormat(timestamp),
+              },
+              dueDate: {
+                  type: Date,
+              },
+               projectName: {
+                  type: String, 
+                  required: false, 
+                  // unique: true,
+              },
+              projectTeam:[
+                {
+                  type: String
+                }
+              ],
+            }
           ]
 
           // savedProjects: [projectSchema],
@@ -42,7 +69,7 @@ userSchema.pre('save', async function (next) {
       const saltRounds = 10;
       this.password = await bcrypt.hash(this.password, saltRounds);
     }
-  
+
     next();
   });
 
@@ -53,9 +80,9 @@ userSchema.pre('save', async function (next) {
   // userSchema.virtual('projectCount').get(function () {
   //   return this.savedProjects.length;
   // });
-  
+
   const User = model('User', userSchema);
-  
+
   module.exports = User;
 
   //Used 'user' model from 'book search hw' and replaced "books" with 'Projects'. Feel free to change
