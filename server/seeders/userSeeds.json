@@ -13,42 +13,51 @@
   
   },
   {
-    "username": "Max Kanat-Alexander",
-    "email": "mkanatalexander@techfriends.dev",
-    "password": "password02",
-    "projects": [
+    "projectDescription": "Test2",
+    "projectAuthor": "a",
+    "projectName":"thing2",
+    "projectTasks":[
       {
-        "projectDescription": "Test2",
-        "projectAuthor": "a",
-        "projectName":"thing2"
+        "tasksDescription": "Make all the seeds correctly please",
+        "tasksPriority": "Important",
+        "dueDate": 5,
+        "tasksName":"Seeding is shit"
       }
     ]
-
   },
-  {
-    "username": "Why The Lucky Stiff",
-    "email": "wtls@techfriends.dev",
-    "password": "password03",
-    "projects": [
-      {
-        "projectDescription": "Test3",
-        "projectAuthor": "b",
-        "projectName":"thing3"
-      }
-    ]
-    
-  },
-  {
-    "username": "Kent Beck",
-    "email": "kbeck@techfriends.dev",
-    "password": "password04",
-    "projects": [
-      {
-        "projectDescription": "Test4",
-        "projectAuthor": "c",
-        "projectName":"thing4"
-      }
-    ]
 
+
+
+  {
+    "projectDescription": "Test3",
+    "projectAuthor": "b",
+    "projectName":"thing3",
+    "projectTasks":[
+      {
+        "tasksDescription": "win is not my loss",
+        "tasksPriority": "Important",
+        "dueDate": 5,
+        "tasksName":"I think i think too much"
+      }
+    ]
+  },
+
+
+
+  {
+    "projectDescription": "Test4",
+    "projectAuthor": "c",
+    "projectName":"thing4",
+    "projectTasks":[
+      {
+        "tasksDescription": "im so sick myself",
+        "tasksPriority": "Important",
+        "dueDate": 5,
+        "tasksName":"anyone else"
+      }
+    ]
   }
+
+
+
 ]

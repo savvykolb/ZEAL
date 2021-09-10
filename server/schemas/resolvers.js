@@ -44,75 +44,72 @@ const resolvers = {
        return { token, user };
      },
 
-    //  addUser: async (parent, { username, email, password }) => {
-    //     const user = await User.create({ username, email, password });
-    //     const token = signToken(user);
-    //     return { token, user };
-    //   },
+     addUser: async (parent, { username, email, password }) => {
+        const user = await User.create({ username, email, password });
+        const token = signToken(user);
+        return { token, user };
+      },
 
-  //   addProject: async (parent, { projectDescription }) => {
-  //     // console.log("blah", projectDescription)
-  //     const project = await Project.create({
-  //       projectDescription,
-  //     });
-  //     await User.findOneAndUpdate(
-  //       { $addToSet: { projects: project._id } }
-  //     );
-  //     console.log("user:", User)
-
-  //       console.log("#2", project)
-  //     return project;
-  //   },
-  //   // throw new AuthenticationError('You need to be logged in!');
-  // },
-
-  //*_*_*_*_*_*_*_*_*_* Unable to test due to needing to login*_*_*_*_*_*_*_*_*
-  addProject: async (parent, { projectDescription, projectTeam, projectName, dueDate }) => {
-    // console.log("again:", context.user)
-    // if (context.user) {
-      // const project = await Project.create({
-      //   projectDescription,
-      //   projectTeam,
-      //   projectName,
-      //   dueDate,
-      //   projectAuthor: context.user.username,
-      // })
-      const userP = await User.findOneAndUpdate(
-        { _id: "613ab2db3cfc33849e4ddb64"},
-        { $push: {
-          projects: {
-            projectDescription,
-            projectTeam,
-            projectName,
-            dueDate
-          }
-          } }
-      );
-        console.log('user:', User)
-        console.log("#$",userP)
-      return userP;
-        // }
-    // throw new AuthenticationError('You need to be logged in!');
-  },
+      addProject: async (parent, { projectDescription, projectTeam, projectName, dueDate }, context) => {
+        console.log("again:", context.user);
+        if (context.user) {
+          const userP = await User.findOneAndUpdate(
+            { _id: context.user._id},
+            { $push: {
+              projects: {
+                projectDescription, 
+                projectTeam, 
+                projectName, 
+                dueDate
+              }
+              } }
+          );
+            console.log('user:', User)
+            console.log("#$",userP)
+          return userP;
+            }
+        throw new AuthenticationError('You need to be logged in!');
+      },
   //*_*_*_*_*_*_*_*_*_* Unable to test due to needing to login*_*_*_*_*_*_*_*_*
   //*_*_*_*_*_*_*_*_*_* Added back in - not sure correct*_*_*_*_*_*_*_*_*
 
-    addTasks: async (parent, { tasksDescription }, context) => {
-      if (context.user) {
-       const tasks = await Tasks.create({
-         tasksDescription,
-         tasksAuthor: context.user.username,
-       });
+  addTasks: async (parent, { projectId, tasksDescription, tasksPriority, dueDate, tasksName }, context) => {
+    if (context.user.projects) {
+      return User.findOneAndUpdate(
+        { _id: projectId },
+        {
+          $push: {
+            projectTasks: { tasksDescription, tasksPriority, dueDate, tasksName },
+          },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    }
+    throw new AuthenticationError('You need to be logged in!');
+  },
 
-       await User.findOneAndUpdate(
-         { _id: context.user._id },
-         { $addToSet: { tasks: tasks._id } }
-       );
+  removeTasks: async (parent, { projectId, taskId}, context) => {
+    if (context.user.projects) {
+      return User.findOneAndUpdate(
+        { _id: projectId },
+        {
+          $pull: {
+            projectTasks: {
+              _id: taskId,
+            },
+          },
+        },
+        { new: true }
+      );
+    }
+    throw new AuthenticationError('You need to be logged in!');
+  },
+},
 
-       return tasks;
-      }
-     // throw new AuthenticationError('You need to be logged in!');
-   },
+
 
   //   saveProject: async (parent, { project }, context) => {
   //     if (context.user) {
@@ -127,19 +124,22 @@ const resolvers = {
   //     throw new AuthenticationError ("Please Log In to save your projects!")
   // },
 
-  removeProject: async (parent, { projectId}, ) => {
-    // if (context.user) {
+  removeProject: async (parent, { projectId}, context ) => {
+    if (context.user) {
         const user = await User.findOneAndUpdate(
-        { _id: "613ab2db3cfc33849e4ddb64" },
-        // { $pull: { addProject: { _id: projectId } } },
+        { _id: context.user._id },
         { $pull: { projects: { _id: projectId } } },
         { new: true }
         );
+
         return user;
-    // }
-    // throw new AuthenticationError("Your project was not deleted! Please try again.")
-}
-}};
+    };
+
+    throw new AuthenticationError("Your project was not deleted! Please try again.")
+},
+
+
+};
 
 module.exports = resolvers;
 

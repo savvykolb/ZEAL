@@ -20,15 +20,14 @@ type User {
     dueDate: Int
   }
 
+}
   type Tasks {
     _id: ID
     tasksDescription: String
-    tasksAuthor: String
     tasksName: String
     tasksPriority: String
     dueDate: Int
-    userID: ID!
-    projectID: ID!
+
   }
 
   type Auth {
@@ -44,9 +43,10 @@ type User {
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addProject(projectDescription: String, projectName: String, projectTeam: String, dueDate: Int  ): Project 
-    addTasks(tasksDescription: String!): Tasks
-    removeProject(projectId: ID!): Project
+    addProject(projectDescription: String, projectName: String, projectTeam: String, dueDate: Int  ): Project
+    removeProject(projectId: ID): Project
+    addTasks(projectId: ID, tasksDescription: String, tasksPriority: String, dueDate: Int, tasksName: String): Tasks
+    removeTasks(projectId: ID, taskId: ID): Tasks
   }
    `;
 
