@@ -19,8 +19,8 @@ const AppNavbar = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
-            <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/home'>
+            {/* <Nav className='ml-auto'> */}
+              {/* <Nav.Link as={Link} to='/home'>
                 Create New Project
               </Nav.Link>
               {Auth.loggedIn() ? (
@@ -33,7 +33,7 @@ const AppNavbar = () => {
               ) : (
                 <Nav.Link as={Link} to='/'>Login/Sign Up</Nav.Link>
               )}
-            </Nav>
+            </Nav> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -46,13 +46,13 @@ const AppNavbar = () => {
           <Modal.Header closeButton>
             <Modal.Title id='signup-modal'>
               <Nav variant='pills'>
-                <Nav.Item>
+                {/* <Nav.Item>
                   <Nav.Link eventKey='login'>Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
-                </Nav.Item>
-              </Nav>
+                </Nav.Item> */}
+              </Nav> 
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
