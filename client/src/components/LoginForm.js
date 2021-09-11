@@ -113,8 +113,8 @@ const LoginForm = ({history}) => {
           Submit
         </Button>
         <div>
-          <p>not yet registered?
-            <Link to = "/signup" >Create a Account</Link>
+          <p>Not yet registered?
+            <Link to = "/signup" > Create a Account</Link>
           </p>
         </div>
       </Form>
