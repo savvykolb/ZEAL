@@ -80,7 +80,7 @@ function ProjectPage({ history }) {
             <div>Due on {project.dueDate}</div>
               </Card.Header>
             <div className="form-group">
-              <label for="exampleFormControlSelect2">Add Task</label>
+              <label id="add" for="exampleFormControlSelect2">Add Task</label>
               <textarea multiple class="form-control" id="exampleFormControlSelect2" value={task} onChange={(e) => setTask(e.target.value)}>
               </textarea>
             </div>
@@ -105,35 +105,35 @@ function ProjectPage({ history }) {
               </div>
             </div>
 
-            <button id="add" type="button" onClick={addTask} className="btn btn-primary bg-secondary">Add Task</button>
+            <button id="add" type="button" onClick={addTask} className="btn btn-warning">Add Task</button>
 
 
 
 
 
             <div class="form-group">
-              <label for="exampleFormControlSelect2">Team Task</label>
+              <label id="add" for="exampleFormControlSelect2">Team Tasks: </label>
               <ul>
                 {allTask.map((item, i) => {
-                  return <li style={{ backgroundColor: item.priority === "high" ? "red" : item.priority === "medium" ? "yellow" : "green" }} key={i}>{item.teamMember}- {item.task}</li>
+                  return <li style={{ color: item.priority === "high" ? "red" : item.priority === "medium" ? "orange" : "green" }} key={i}>{item.teamMember}: {item.task}</li>
                 })}
               </ul>
             </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect2">Unassigned Task</label>
+            {/* <div class="form-group">
+              <label for="exampleFormControlSelect2">Unassigned Task: </label>
               <ul>
                 {unassigned.map((item, i) => {
                   return <li style={{ backgroundColor: item.priority === "high" ? "red" : item.priority === "medium" ? "yellow" : "green" }} key={i}>{item.task}</li>
                 })}
               </ul>
-            </div>
+            </div> */}
 
 
 
 
 
 
-            <button type="submit" className="btn btn-primary bg-secondary">Submit</button>
+            <button type="submit" className="btn btn-warning">Submit</button>
             <div className="col-12 text-center">
 
               <h6><a href="./create">&larr; Go Back</a></h6>
