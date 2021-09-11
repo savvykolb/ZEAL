@@ -65,7 +65,7 @@ const LoginForm = ({history}) => {
     <>
      <section class="d-flex flex-column align-items-center justify-content-center title" >
     <h1>Welcome to <span id="zeal">ZEAL</span>!</h1>
-    <h2> Please login to you account.</h2>
+    <h2> Please login to your account.</h2>
   </section>
     <Container className="login bg" id="login">
   <Row>
