@@ -12,9 +12,9 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar className="nav bg-dark" variant='dark' expand='lg'>
+      <Navbar className="nav">
         <Container fluid>
-          <Navbar.Brand className="header" as={Link} to='/'>
+          <Navbar.Brand className="nav" as={Link} to='/'>
             ZEAL
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />

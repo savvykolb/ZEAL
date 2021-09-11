@@ -68,9 +68,12 @@ const SignupForm = ({history}) => {
 
   return (
     <>
-    <div className= "position"> 
+     <section class="d-flex flex-column align-items-center justify-content-center title" >
+    <h1>Welcome to <span id="zeal">ZEAL</span>!</h1>
+    <h2> Create your account.</h2>
+  </section>
       
-     <Container className= "login bg-dark">
+     <Container className= "login bg" id="login">
       <Row>
         <Col>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
@@ -143,7 +146,7 @@ const SignupForm = ({history}) => {
         <div>
 
           <p>Already have a account?
-            <Link to = "/" >Login</Link>
+            <Link to = "/" > Login</Link>
           </p>
         </div>
       </Form>
@@ -151,7 +154,7 @@ const SignupForm = ({history}) => {
       </Row>
       </Container>
     
-      </div>
+      
     </>
   );
 };

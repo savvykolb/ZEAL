@@ -63,7 +63,11 @@ const LoginForm = ({history}) => {
 
   return (
     <>
-    <Container className="login bg-dark">
+     <section class="d-flex flex-column align-items-center justify-content-center title" >
+    <h1>Welcome to <span id="zeal">ZEAL</span>!</h1>
+    <h2> Please login to you account.</h2>
+  </section>
+    <Container className="login bg" id="login">
   <Row>
     <Col>
     
@@ -78,7 +82,7 @@ const LoginForm = ({history}) => {
         </Alert>
         <Form.Group>
           <Form.Label htmlFor="email">Email</Form.Label>
-          <Form.Control
+          <Form.Control id="placeholder"
             type="text"
             placeholder="Your email"
             name="email"
