@@ -30,7 +30,7 @@ function Homescreen() {
     <div>
       <section className="d-flex flex-column align-items-center justify-content-center title" >
         <h1>Welcome Back  <span id="zeal"> {users.username}</span>!</h1>
-        <h2> Please login to you account.</h2>
+        <h4>Track your assignments and tasks below.</h4>
 
         <div className="row container ">
 
@@ -41,7 +41,7 @@ function Homescreen() {
 
         <Link to="/create" className="btn btn-block p-3 my-2 btn-secondary" id="addProject">
         <span className="plus">&#43; </span>
-        <h3>Add Projects</h3>
+        <h3>Add Assignment</h3>
         </Link>
         </div>
       {projects.map((project, i) => {
