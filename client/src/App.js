@@ -1,8 +1,7 @@
 import React from 'react';
 import Homescreen from './pages/Homescreen';
-// import { Navbar } from 'react-bootstrap';
-import NewProjectForm from './components/NewProjectForm';
 import AppNavbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
@@ -50,6 +49,7 @@ function App() {
      <Route path = "/home" component = {Homescreen} exact />
      <Route path = "/project" component = {ProjectPage} exact />
      <Route path = "/create" component = {CreateTeam} exact />
+     <Footer/>
     </div>
     </Router>
      </ApolloProvider>

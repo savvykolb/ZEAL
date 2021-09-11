@@ -94,7 +94,7 @@ code {
   margin-top: 30px;
 }
 .projectText{
-  color: white;
+  color: black;
 }
 #dates, #buttons{
   display: flex;
@@ -117,10 +117,11 @@ margin-bottom: 30px;
 
 #addTeamButton{
  border: none;
+ margin-top: 12px;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-  color:white;
+  width: 20%;
+ 
 }
 
 .btn{ 
@@ -133,4 +134,10 @@ margin-bottom: 30px;
   margin-right: auto;
 }
 
+#footer {
+  
+  margin-top: 50px;
+    font-family: 'Nova Mono', monospace;
+    font-size: 16px;
+}
 
