@@ -42,16 +42,38 @@ code {
   border-radius: 25px;
   padding: 20px;
   margin-top: 0px;
-  
+  width: 60vw;
+
 }
 
-#placeholder {
-  color:darkorchid;
+.container {
+  padding-left: 40px;
+  margin-bottom: 15px;
 }
+
+
 .plus {
   content: "\002B";
   font-size: 100px;
+  color: papayawhip;
 }
+
+#addProject {
+  background-color: #f1cd28;
+}
+
+.projectTitle {
+  border-color: #184212;
+  font-family: 'Nova Mono', monospace;
+  font-size: 25px;
+
+
+}
+
+.card {
+  border-color: #184212 ;
+}
+
 #task{
   height: 50%;
 }
@@ -81,14 +103,6 @@ code {
   grid-column-gap: 30px;
 }
 
-
-.login{
-
-  width: 60vw;
-  /* background-color: rgb(42, 42, 38); */
-  margin-top: 100px;
-color: white;
-}
 .date{
   font-size: 20px;
   text-decoration: underline;
