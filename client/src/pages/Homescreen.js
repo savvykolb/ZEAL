@@ -56,6 +56,9 @@ function Homescreen() {
         <Card.Text className="d-flex flex-column align-items-center justify-content-center">
       {project.dueDate}
         </Card.Text>
+        {/* <ul>
+          <li> Testklasdlkfjasdlkjflasdfjlakdfj </li>
+        </ul> */}
         </Card>
       </div>
         )},
