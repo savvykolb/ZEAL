@@ -51,14 +51,16 @@ function Homescreen() {
         <Card.Header className="d-flex flex-column align-items-center justify-content-center projectTitle">{project.name}</Card.Header>
       <br></br>
         <Card.Text className="d-flex flex-column align-items-center justify-content-center">
-      {project.description}
+       {project.description}
         </Card.Text>
         <Card.Text className="d-flex flex-column align-items-center justify-content-center">
-      {project.dueDate}
-        </Card.Text>
-        {/* <ul>
-          <li> Testklasdlkfjasdlkjflasdfjlakdfj </li>
-        </ul> */}
+     Due Date: {project.dueDate}
+      </Card.Text>
+      Project Tasks:
+          {project.assignedTask.map((sub)=>
+            <li style={{ color: sub.priority === "high" ? "red" : sub.priority === "medium" ? "orange" : "green" }} key={i}><span style={{color: 'black'}}>{sub.teamMember}:</span>  {sub.task}</li>
+         )}
+         {/* <button onClick={deleteItem}>Delete this card</button> */}
         </Card>
       </div>
         )},
