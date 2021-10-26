@@ -1,46 +1,52 @@
 # ZEAL
 
-Ever need help organizing a big project? Zeal is a project management application that has been developed to make the organization of tasks among team members easier. With this application you are able to assign tasks to members and keep track of tasks that have been assigned and unassigned. 
+An application created by a teacher with the goal to help grow students’ leadership, delegation, and organizational skills while easing the stress of group projects. What better way to grow a student’s initiative than by mixing a cool new app that increases the opportunity for working with friends!
+ 
 
 # Links
 
 [ZEAL](https://zeal3.herokuapp.com/)
 
-[Git Hub Respiratory](https://github.com/snk923/ZEAL)
-
-# User Story
-
-```
-When I reach the webpage I am able to create an account.
-When I create an account I am able to add a project.
-When a project has been added I am able to add team members and assign tasks to them.
-When I assign tasks I am able to prioritize them. 
-```
+[GitHub](https://github.com/snk923/ZEAL)
 
 
-# Demo
-**Log in page**
+### Login Screen
+#
 
-![Front page](client/public/front.PNG)
+When the user first enters the application, they will see a well polished and inviting login screen with the option to log in or to create an account.
 
-**Create Account**
+![Home Login Screen ](client/public/img/login.jpg)
 
-![Create an accoutn](client/public/create.PNG)
+### Homepage
+#
 
-**Add a project**
+Once logged in, users will see their username displayed at the top of the screen welcoming them into their site. If they are a previous user, the will see all their projects displayed on this screen. If they are a new user, they will be prompted to create a new project. 
 
-![project](client/public/projects.PNG)
+![Create a Project Home ](client/public/img/home.jpg)
+![Existing Project Display](client/public/img/home2.jpg)
 
-**Set tasks**
+### Create New Assignment
+#
 
-![tasks](client/public/set.PNG)
+Once users click on the 'Add Assignment' button, they will be taken to a form that allows them to customize a new project.
 
-**Adding tasks to members**
-
-![tasks](client/public/test.PNG)
+![Creat New Assignment](client/public/img/assign.jpg)
 
 
-# Contributers
+### Assign Tasks 
+#
+
+Once a project is created, users can now delegate tasks to team members on the project. They can also designate whether the task is high priority, medium priority, or low priority. 
+
+![Assign Task Form](client/public/img/task.jpg)
+![Assign Task Form Filled Out](client/public/img/task2.jpg)
+
+### Future Developments 
+#
+
+Currently, the development team is working on completing the 'update' portion of our CRUD method. We are also working on fixing our back end bugs, as well as any front end bugs that are persisting. In the future, we would like to add additional features to our application to allow it to be more interactive and have multiple user levels.  
+
+# Development Team
 
 [Savannah Kolb](https://github.com/snk923)
 
