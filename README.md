@@ -7,7 +7,7 @@ An application created by a teacher with the goal to help grow students’ leade
 
 [ZEAL](https://zeal3.herokuapp.com/)
 
-[Git Hub Respiratory](https://github.com/snk923/ZEAL)
+[GitHub](https://github.com/snk923/ZEAL)
 
 
 ### Login Screen
